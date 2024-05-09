@@ -1,9 +1,10 @@
 import streamlit as st
+import math
 
 def calculate_attendance_data(present, absent, remaining):
     total = present + absent + remaining
 
-    percent = (present / (total - remaining)) * 100 if total - remaining > 0 else 0
+    percent = math.ceil((present / (total - remaining)) * 100) if total - remaining > 0 else 0
 
     bunk_75 = int(0.25 * total) - absent  
     bunk_80 = int(0.20 * total) - absent
